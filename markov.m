@@ -12,7 +12,7 @@ if run_sim==1
     y2=x/(x(end)-x(1));
     y=y1+y2; % consists of symmetric y1 plus an assymetric y2 term
     y=y-min(y); % shift the potential so the minimum value is zero
-    A=10;
+    A=2.5;
     KbT=0.596;
     % construct rate matrix using Arhennius rates
     for i=1:N-1
@@ -29,7 +29,7 @@ if run_sim==1
 
     %% Simulation of Markov chain system (using Gillespie gives almost identical results)
     steps=40000;
-    M=expm(K'*0.25); %timestep of 0.25
+    M=expm(K'); %timestep of 1
     s_traj=zeros(steps,N);
     for j=1:N
         s_traj(1,j)=j; %initialise a trajectory from each state
